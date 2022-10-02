@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+    <header class="container">
+        <div class="open-nav" id="openMobileNav">
+            <img src="/images/icon-menu.svg" alt="">
+        </div>
+        <div class="logo">
+            <img src="/images/logo.svg" alt="logo">
+        </div>
+        <nav id="nav">
+            <div class="close-nav" id="closeMobileNav">
+                <img src="/images/icon-close.svg" alt="">
+            </div>
+            <a href="#" class="nav-link">Collections</a>
+            <a href="#" class="nav-link">Men</a>
+            <a href="#" class="nav-link">Women</a>
+            <a href="#" class="nav-link">About</a>
+            <a href="#" class="nav-link">Contact</a>
+        </nav>
+        <div class="details">
+            <a href="#">
+                <img src="/images/icon-cart.svg" alt="cart" class="cart-img">
+            </a>
+            <a href="#">
+                <img src="/images/image-avatar.png" alt="avatar" class="avatar-img">
+            </a>
+        </div>
+    </header>
+    <main class="container m-auto">
+        <div class="slider">
+            <div class="slider-images">
+                <img src="/images/image-product-1.jpg" alt="slider-image" class="slider-image">
+                <div class="next-image" id="nextImageBtn">
+                    <img src="/images/icon-next.svg" alt="">
+                </div>
+                <div class="previous-image" id="previousImageBtn">
+                    <img src="/images/icon-previous.svg" alt="">
+                </div>
+            </div>
+            <div class="slider-thumbnails">
+                <img src="/images/image-product-1-thumbnail.jpg" alt="slider thumbnail" class="slider-thumbnail" id="1">
+                <img src="/images/image-product-2-thumbnail.jpg" alt="slider thumbnail" class="slider-thumbnail" id="2">
+                <img src="/images/image-product-3-thumbnail.jpg" alt="slider thumbnail" class="slider-thumbnail" id="3">
+                <img src="/images/image-product-4-thumbnail.jpg" alt="slider thumbnail" class="slider-thumbnail" id="4">
+            </div>
+        </div>
+        <div class="product-details">
+            <h2 class="product-manufacturer">
+                Sneaker Company
+            </h2>
+            <h1 class="product-name">
+                Fall Limited Edition Sneakers
+            </h1>
+            <p class="product-description">
+                These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer
+                sole, they’ll withstand everything the weather can offer.
+            </p>
+            <div class="price-details">
+                <div class="product-price">
+                    <p class="discounted-price">$125.00<span class="discount-percentage">50%</span></p>
+                    <p class="main-price">$250</p>
+                </div>
+
+            </div>
+            <div class="adding-to-cart">
+                <div class="number-of-items">
+                    <button class="decrement"><img src="/images/icon-minus.svg" alt=""></button>
+                    <p class="item-count">0</p>
+                    <button class="increment"><img src="/images/icon-plus.svg" alt=""></button>
+                </div>
+                <button class="add-to-cart">
+                    <img src="/images/icon-cart.svg" class="add-to-cart-icon">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+    </main>
+    <script src="./slider.js"></script>
+    <script src="./index.js"></script>
+</body>
+
+</html>
