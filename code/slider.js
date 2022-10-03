@@ -15,6 +15,13 @@ let currentImage = 0;
 // Show an image when page loads
 function showMainImage() {
     image.src = productImages[currentImage]
+    imageThumbnails.forEach(thumbnail => {
+        thumbnail.classList.remove("active")
+        if (thumbnail.id == currentImage + 1) {
+            thumbnail.classList.add("active");
+        }
+    })
+
 }
 window.addEventListener("DOMContentLoaded", showMainImage);
 
