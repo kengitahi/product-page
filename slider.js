@@ -5,10 +5,10 @@ const nextImageButton = document.getElementById("nextImageBtn")
 const previousImageButton = document.getElementById("previousImageBtn")
 
 const productImages = [
-    "/images/image-product-1.jpg",
-    "/images/image-product-2.jpg",
-    "/images/image-product-3.jpg",
-    "/images/image-product-4.jpg",
+    "./images/image-product-1.jpg",
+    "./images/image-product-2.jpg",
+    "./images/image-product-3.jpg",
+    "./images/image-product-4.jpg",
 ]
 
 let currentImage = 0;

@@ -1,44 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | E-commerce product page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;700&display=swap" rel="stylesheet">
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
+    <link rel="stylesheet" href="./styles.css">
 </head>
+
 <body>
+    <header class="container">
+        <div class="open-nav" id="openMobileNav">
+            <img src="./images/icon-menu.svg" alt="">
+        </div>
+        <div class="logo">
+            <img src="./images/logo.svg" alt="logo">
+        </div>
+        <nav id="nav">
+            <div class="close-nav" id="closeMobileNav">
+                <img src="./images/icon-close.svg" alt="">
+            </div>
+            <a href="#" class="nav-link">Collections</a>
+            <a href="#" class="nav-link">Men</a>
+            <a href="#" class="nav-link">Women</a>
+            <a href="#" class="nav-link">About</a>
+            <a href="#" class="nav-link">Contact</a>
+        </nav>
+        <div class="details">
+            <img src="./images/icon-cart.svg" alt="cart" class="cart-img" id="togglModal">
+            <div class="cart-modal visibility-hidden" id="cartModal">
+                <p class="cart-modal-title">
+                    Cart
+                </p>
+                <p class="empty-cart-message" id="cartMessage">Your cart is empty</p>
+                <div class="modal-main" id="modalMain">
+                    <div class="cart-modal-content">
+                        <div class="cart-image">
+                            <img src="./images/image-product-1.jpg" alt="">
+                        </div>
+                        <div class="cart-details" id="cartDetails">
+                            <!-- Everything in here will be added by JS -->
+                        </div>
+                        <div class="cart-empty" id="emptyCart">
+                            <img src="./images/icon-delete.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="cart-modal-checkout">
+                        <button class="modal-checkout orange-btn">Checkout</button>
+                    </div>
+                </div>
+            </div>
+            <img src="./images/image-avatar.png" alt="avatar" class="avatar-img">
 
-  Collections
-  Men
-  Women
-  About
-  Contact
+        </div>
+    </header>
+    <main class="container m-auto">
+        <div class="slider">
+            <div class="slider-images">
+                <img src="./images/image-product-1.jpg" alt="slider-image" class="slider-image">
+                <div class="next-image" id="nextImageBtn">
+                    <img src="./images/icon-next.svg" alt="">
+                </div>
+                <div class="previous-image" id="previousImageBtn">
+                    <img src="./images/icon-previous.svg" alt="">
+                </div>
+            </div>
+            <div class="slider-thumbnails">
+                <div class="thumbnail-container" id="1">
+                    <img src="./images/image-product-1-thumbnail.jpg" alt="slider thumbnail" class="slider-thumbnail"
+                        id="1">
+                </div>
+                <div class="thumbnail-container" id="2">
+                    <img src="./images/image-product-2-thumbnail.jpg" alt="slider thumbnail" class="slider-thumbnail"
+                        id="2">
+                </div>
+                <div class="thumbnail-container" id="3">
+                    <img src="./images/image-product-3-thumbnail.jpg" alt="slider thumbnail" class="slider-thumbnail"
+                        id="3">
+                </div>
+                <div class="thumbnail-container" id="4">
+                    <img src="./images/image-product-4-thumbnail.jpg" alt="slider thumbnail" class="slider-thumbnail"
+                        id="4">
+                </div>
+            </div>
+        </div>
+        <div class="product-details">
+            <h2 class="product-manufacturer">
+                Sneaker Company
+            </h2>
+            <h1 class="product-name" id="productName">
+                Fall Limited Edition Sneakers
+            </h1>
+            <p class="product-description">
+                These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer
+                sole, they’ll withstand everything the weather can offer.
+            </p>
+            <div class="price-details">
+                <div class="product-price">
+                    <p class="discounted-price">$<span id="discountedPrice">125</span><span
+                            class="discount-percentage">50%</span></p>
+                    <p class="main-price">$250</p>
+                </div>
 
-  Sneaker Company
-
-  Fall Limited Edition Sneakers
-
-  These low-profile sneakers are your perfect casual wear companion. Featuring a 
-  durable rubber outer sole, they’ll withstand everything the weather can offer.
-
-  $125.00
-  50%
-  $250.00
-
-  0
-  Add to cart
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+            </div>
+            <div class="adding-to-cart">
+                <div class="number-of-items">
+                    <button class="decrement" id="decrement"><img src="./images/icon-minus.svg" alt=""></button>
+                    <p class="item-count" id="itemCount">0</p>
+                    <button class="increment" id="increment"><img src="./images/icon-plus.svg" alt=""></button>
+                </div>
+                <button class="add-to-cart orange-btn" id="addToCart">
+                    <img src="./images/icon-cart.svg" class="add-to-cart-icon">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+    </main>
+    <script src="./slider.js"></script>
+    <script src="./index.js"></script>
 </body>
+
 </html>
