@@ -1,5 +1,6 @@
 const image = document.querySelector(".slider-image");
 const imageThumbnails = document.querySelectorAll(".slider-thumbnail");
+const thumbnailContainers = document.querySelectorAll(".thumbnail-container");
 const nextImageButton = document.getElementById("nextImageBtn")
 const previousImageButton = document.getElementById("previousImageBtn")
 
@@ -15,7 +16,7 @@ let currentImage = 0;
 // Show an image when page loads
 function showMainImage() {
     image.src = productImages[currentImage]
-    imageThumbnails.forEach(thumbnail => {
+    thumbnailContainers.forEach(thumbnail => {
         thumbnail.classList.remove("active")
         if (thumbnail.id == currentImage + 1) {
             thumbnail.classList.add("active");
@@ -26,7 +27,7 @@ function showMainImage() {
 window.addEventListener("DOMContentLoaded", showMainImage);
 
 // Change image when thumbnail clicked
-imageThumbnails.forEach(thumbnail => {
+thumbnailContainers.forEach(thumbnail => {
     thumbnail.addEventListener("click", function () {
         currentImage = thumbnail.id - 1
         showMainImage(currentImage);

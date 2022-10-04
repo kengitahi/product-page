@@ -32,12 +32,31 @@
             <a href="#" class="nav-link">Contact</a>
         </nav>
         <div class="details">
-            <a href="#">
-                <img src="/images/icon-cart.svg" alt="cart" class="cart-img">
-            </a>
-            <a href="#">
-                <img src="/images/image-avatar.png" alt="avatar" class="avatar-img">
-            </a>
+            <img src="/images/icon-cart.svg" alt="cart" class="cart-img" id="togglModal">
+            <div class="cart-modal visibility-hidden" id="cartModal">
+                <p class="cart-modal-title">
+                    Cart
+                </p>
+                <p class="empty-cart-message" id="cartMessage">Your cart is empty</p>
+                <div class="modal-main" id="modalMain">
+                    <div class="cart-modal-content">
+                        <div class="cart-image">
+                            <img src="/images/image-product-1.jpg" alt="">
+                        </div>
+                        <div class="cart-details" id="cartDetails">
+                            <!-- Everything in here will be added by JS -->
+                        </div>
+                        <div class="cart-empty" id="emptyCart">
+                            <img src="/images/icon-delete.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="cart-modal-checkout">
+                        <button class="modal-checkout orange-btn">Checkout</button>
+                    </div>
+                </div>
+            </div>
+            <img src="/images/image-avatar.png" alt="avatar" class="avatar-img">
+
         </div>
     </header>
     <main class="container m-auto">
@@ -52,17 +71,29 @@
                 </div>
             </div>
             <div class="slider-thumbnails">
-                <img src="/images/image-product-1-thumbnail.jpg" alt="slider thumbnail" class="slider-thumbnail" id="1">
-                <img src="/images/image-product-2-thumbnail.jpg" alt="slider thumbnail" class="slider-thumbnail" id="2">
-                <img src="/images/image-product-3-thumbnail.jpg" alt="slider thumbnail" class="slider-thumbnail" id="3">
-                <img src="/images/image-product-4-thumbnail.jpg" alt="slider thumbnail" class="slider-thumbnail" id="4">
+                <div class="thumbnail-container" id="1">
+                    <img src="/images/image-product-1-thumbnail.jpg" alt="slider thumbnail" class="slider-thumbnail"
+                        id="1">
+                </div>
+                <div class="thumbnail-container" id="2">
+                    <img src="/images/image-product-2-thumbnail.jpg" alt="slider thumbnail" class="slider-thumbnail"
+                        id="2">
+                </div>
+                <div class="thumbnail-container" id="3">
+                    <img src="/images/image-product-3-thumbnail.jpg" alt="slider thumbnail" class="slider-thumbnail"
+                        id="3">
+                </div>
+                <div class="thumbnail-container" id="4">
+                    <img src="/images/image-product-4-thumbnail.jpg" alt="slider thumbnail" class="slider-thumbnail"
+                        id="4">
+                </div>
             </div>
         </div>
         <div class="product-details">
             <h2 class="product-manufacturer">
                 Sneaker Company
             </h2>
-            <h1 class="product-name">
+            <h1 class="product-name" id="productName">
                 Fall Limited Edition Sneakers
             </h1>
             <p class="product-description">
@@ -71,18 +102,19 @@
             </p>
             <div class="price-details">
                 <div class="product-price">
-                    <p class="discounted-price">$125.00<span class="discount-percentage">50%</span></p>
+                    <p class="discounted-price">$<span id="discountedPrice">125</span><span
+                            class="discount-percentage">50%</span></p>
                     <p class="main-price">$250</p>
                 </div>
 
             </div>
             <div class="adding-to-cart">
                 <div class="number-of-items">
-                    <button class="decrement"><img src="/images/icon-minus.svg" alt=""></button>
-                    <p class="item-count">0</p>
-                    <button class="increment"><img src="/images/icon-plus.svg" alt=""></button>
+                    <button class="decrement" id="decrement"><img src="/images/icon-minus.svg" alt=""></button>
+                    <p class="item-count" id="itemCount">0</p>
+                    <button class="increment" id="increment"><img src="/images/icon-plus.svg" alt=""></button>
                 </div>
-                <button class="add-to-cart">
+                <button class="add-to-cart orange-btn" id="addToCart">
                     <img src="/images/icon-cart.svg" class="add-to-cart-icon">
                     Add to Cart
                 </button>
