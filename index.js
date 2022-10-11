@@ -43,6 +43,8 @@ const cartMessage = document.getElementById("cartMessage");
 const mainModalContent = document.getElementById("modalMain")
 const cartDetails = document.getElementById("cartDetails");
 
+const badgeItems = document.getElementById("badge")
+
 let price = Number(productPrice.innerHTML);
 
 addToCartBtn.addEventListener("click", addToCart);
@@ -54,30 +56,34 @@ function addToCart() {
         mainModalContent.classList.add("display-block")
 
         cartDetails.innerHTML = `
-        <p class="modal-title">${productName}</p>
-        <div>
-            <p class="modal-price">$<span class="price">125</span></p>
-            <p class="modal-quantity">x <span class="quantity">${numberOfItems}</span></p>
-            <p class="modal-total">$<span class="total">${numberOfItems * price}</span></span>
-        </div>
-    `
+            <p class="modal-title">${productName}</p>
+            <div>
+                <p class="modal-price">$<span class="price">125</span></p>
+                <p class="modal-quantity">x <span class="quantity">${numberOfItems}</span></p>
+                <p class="modal-total">$<span class="total">${numberOfItems * price}</span></span>
+            </div>
+        `
+        badgeItems.classList.toggle("visibility-hidden")
+        badgeItems.innerHTML = numberOfItems;
     }
 }
 
 emptyCartBtn.addEventListener('click', function () {
     numberOfItems = 0;
     itemCount.innerHTML = 0
+    cartDetails.innerHTML = ""
 
     cartMessage.classList.remove("display-none");
     mainModalContent.classList.remove("display-block")
-    cartDetails.innerHTML = ""
+    badgeItems.classList.toggle("visibility-hidden")
 }
 )
+
+// Show/hide cart modal
 
 const toggleModal = document.getElementById("togglModal")
 const cartModal = document.getElementById("cartModal")
 
 toggleModal.addEventListener("click", function () {
-
     cartModal.classList.toggle("visibility-hidden")
 })

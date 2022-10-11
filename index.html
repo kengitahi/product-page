@@ -32,7 +32,12 @@
             <a href="#" class="nav-link">Contact</a>
         </nav>
         <div class="details">
-            <img src="./images/icon-cart.svg" alt="cart" class="cart-img" id="togglModal">
+            <div style="position:relative" id="togglModal">
+                <img src="./images/icon-cart.svg" alt="cart" class="cart-img" data-added-to-cart="3">
+                <span id="badge" class="badge visibility-hidden">
+                    <!-- Add count here using JS -->
+                </span>
+            </div>
             <div class="cart-modal visibility-hidden" id="cartModal">
                 <p class="cart-modal-title">
                     Cart
@@ -71,19 +76,19 @@
                 </div>
             </div>
             <div class="slider-thumbnails">
-                <div class="thumbnail-container" id="1">
+                <div class="thumbnail-container main" id="1">
                     <img src="./images/image-product-1-thumbnail.jpg" alt="slider thumbnail" class="slider-thumbnail"
                         id="1">
                 </div>
-                <div class="thumbnail-container" id="2">
+                <div class="thumbnail-container main" id="2">
                     <img src="./images/image-product-2-thumbnail.jpg" alt="slider thumbnail" class="slider-thumbnail"
                         id="2">
                 </div>
-                <div class="thumbnail-container" id="3">
+                <div class="thumbnail-container main" id="3">
                     <img src="./images/image-product-3-thumbnail.jpg" alt="slider thumbnail" class="slider-thumbnail"
                         id="3">
                 </div>
-                <div class="thumbnail-container" id="4">
+                <div class="thumbnail-container main" id="4">
                     <img src="./images/image-product-4-thumbnail.jpg" alt="slider thumbnail" class="slider-thumbnail"
                         id="4">
                 </div>
@@ -121,6 +126,45 @@
             </div>
         </div>
     </main>
+    <div class="slider-modal display-none">
+        <div class="slider">
+            <div class="close-modal" id="closeModal">
+                <img src="./images/icon-close.svg" alt="close modal">
+            </div>
+            <div class="slider-images">
+                <img src="./images/image-product-1.jpg" alt="slider-image" class="slider-image for-modal">
+                <div class="next-image" id="nextModalBtn">
+                    <img src="./images/icon-next.svg" alt="">
+                </div>
+                <div class="previous-image" id="previousModalBtn">
+                    <img src="./images/icon-previous.svg" alt="">
+                </div>
+            </div>
+            <div class="slider-thumbnails">
+                <div class="thumbnail-container for-modal" id="1">
+                    <img src="./images/image-product-1-thumbnail.jpg" alt="slider thumbnail" class="slider-thumbnail"
+                        id="1">
+                </div>
+                <div class="thumbnail-container for-modal" id="2">
+                    <img src="./images/image-product-2-thumbnail.jpg" alt="slider thumbnail" class="slider-thumbnail"
+                        id="2">
+                </div>
+                <div class="thumbnail-container for-modal" id="3">
+                    <img src="./images/image-product-3-thumbnail.jpg" alt="slider thumbnail" class="slider-thumbnail"
+                        id="3">
+                </div>
+                <div class="thumbnail-container for-modal" id="4">
+                    <img src="./images/image-product-4-thumbnail.jpg" alt="slider thumbnail" class="slider-thumbnail"
+                        id="4">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
     <script src="./slider.js"></script>
     <script src="./index.js"></script>
 </body>
