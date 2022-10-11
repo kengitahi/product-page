@@ -23,79 +23,57 @@ const productImages = [
 
 let currentImage = 0;
 
-// I will refactor functions below later
 // Show an image when page loads
-function showMainImage() {
-    mainImage.src = productImages[currentImage]
-    thumbnailContainers.forEach(thumbnail => {
+function showMainImage(image, container, imageNumber = currentImage) {
+    image.src = productImages[imageNumber]
+    container.forEach(thumbnail => {
         thumbnail.classList.remove("active")
         if (thumbnail.id == currentImage + 1) {
             thumbnail.classList.add("active");
         }
     })
 }
-window.addEventListener("DOMContentLoaded", showMainImage);
-
-function showModalImage() {
-    modalImage.src = productImages[currentImage]
-    modalThumbnailContainers.forEach(thumbnail => {
-        thumbnail.classList.remove("active")
-        if (thumbnail.id == currentImage + 1) {
-            thumbnail.classList.add("active");
-        }
-    })
-}
-window.addEventListener("DOMContentLoaded", showModalImage);
+window.addEventListener("DOMContentLoaded", showMainImage(mainImage, thumbnailContainers));
+window.addEventListener("DOMContentLoaded", showMainImage(modalImage, modalThumbnailContainers));
 
 
 // Change image when thumbnail clicked
-thumbnailContainers.forEach(thumbnail => {
-    thumbnail.addEventListener("click", function () {
-        currentImage = thumbnail.id - 1
-        showMainImage(currentImage);
+function changeMainImage(image, container) {
+    container.forEach(thumbnail => {
+        thumbnail.addEventListener("click", function () {
+            currentImage = thumbnail.id - 1
+            showMainImage(image, container, currentImage);
+        })
     })
-})
+}
+window.addEventListener("DOMContentLoaded", changeMainImage(mainImage, thumbnailContainers));
+window.addEventListener("DOMContentLoaded", changeMainImage(modalImage, modalThumbnailContainers));
 
-modalThumbnailContainers.forEach(thumbnail => {
-    thumbnail.addEventListener("click", function () {
-        console.log("modal thumbnail clicked")
-        currentImage = thumbnail.id - 1
-        showModalImage(currentImage);
+
+// Previous and next images
+function nextImage(image, container, button) {
+    button.addEventListener("click", function () {
+        currentImage++;
+        if (currentImage > productImages.length - 1) {
+            currentImage = 0;
+        }
+        showMainImage(image, container, currentImage);
     })
-})
+}
+window.addEventListener("DOMContentLoaded", nextImage(mainImage, thumbnailContainers, nextImageButton,));
+window.addEventListener("DOMContentLoaded", nextImage(modalImage, modalThumbnailContainers, nextModalButton));
 
-nextImageButton.addEventListener("click", function () {
-    currentImage++;
-    if (currentImage > productImages.length - 1) {
-        currentImage = 0;
-    }
-    showMainImage(currentImage);
-});
-
-previousImageButton.addEventListener("click", function () {
-    currentImage--;
-    if (currentImage < 0) {
-        currentImage = productImages.length - 1;
-    }
-    showMainImage(currentImage);
-});
-
-
-nextModalButton.addEventListener("click", function () {
-    currentImage++;
-    if (currentImage > productImages.length - 1) {
-        currentImage = 0;
-    }
-    showModalImage(currentImage);
-});
-
-previousModalButton.addEventListener("click", function () {
-    currentImage--;
-    if (currentImage < 0) {
-        currentImage = productImages.length - 1;
-    }
-    showModalImage(currentImage);
-});
+function previousImage(image, container, button) {
+    button.addEventListener("click", function () {
+        currentImage--;
+        if (currentImage < 0) {
+            currentImage = productImages.length - 1;
+        }
+        showMainImage(image, container, currentImage);
+    })
+}
+window.addEventListener("DOMContentLoaded", previousImage(mainImage, thumbnailContainers, previousImageButton,));
+window.addEventListener("DOMContentLoaded", previousImage(modalImage, modalThumbnailContainers, previousModalButton));
 
 // Open and Close slider modal
 function toggleModalDisplay() {
@@ -104,9 +82,5 @@ function toggleModalDisplay() {
         sliderModal.classList.toggle("display-none");
     }
 }
-
 mainImage.addEventListener("click", toggleModalDisplay)
 closeModal.addEventListener("click", toggleModalDisplay)
-
-
-
